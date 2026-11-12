@@ -1,0 +1,12 @@
+erDiagram
+  BRANCH {
+    BIGINT branch_id PK
+    VARCHAR name UK
+  }
+  STAFF {
+    BIGINT staff_id PK
+    BIGINT branch_id FK
+    VARCHAR full_name
+  }
+  BRANCH ||--o{ STAFF : "employs"
+  STAFF ||--o| BRANCH : "manages"

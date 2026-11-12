@@ -1,0 +1,21 @@
+Enum payment_method_enum {
+  cash
+  visa
+  wallet
+}
+
+Table clients {
+  client_id bigint [pk]
+  name varchar(120) [not null, unique]
+}
+
+Table orders {
+  order_id bigint [pk]
+  client_id bigint [not null, ref: > clients.client_id]
+  payment_method payment_method_enum [not null]
+  Indexes {
+    (client_id) [name: "idx_orders_client"]
+  }
+}
+
+Ref: orders.client_id > clients.client_id

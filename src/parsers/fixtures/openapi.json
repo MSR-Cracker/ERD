@@ -1,0 +1,27 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "Mini pharmacy API", "version": "1.0.0" },
+  "components": {
+    "schemas": {
+      "Branch": {
+        "type": "object",
+        "x-primary-key": "branchId",
+        "required": ["name"],
+        "properties": {
+          "branchId": { "type": "integer", "format": "int64" },
+          "name": { "type": "string", "minLength": 1 },
+          "address": { "type": "object", "properties": { "street": { "type": "string" }, "city": { "type": "string" } } },
+          "status": { "type": "string", "enum": ["open", "closed"] }
+        }
+      },
+      "Item": {
+        "type": "object",
+        "required": ["barcode"],
+        "properties": {
+          "barcode": { "type": "string", "x-primary-key": true },
+          "branches": { "type": "array", "items": { "$ref": "#/components/schemas/Branch" } }
+        }
+      }
+    }
+  }
+}

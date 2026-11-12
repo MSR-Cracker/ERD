@@ -1,0 +1,1 @@
+export const LOCAL_SCHEMA_INPUT_LIMIT = 100_000;

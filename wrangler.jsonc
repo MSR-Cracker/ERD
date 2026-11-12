@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "erdforge",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-02-14",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "vars": {
+    "GEMINI_MODEL": "gemini-3.8-flash"
+  }
+}

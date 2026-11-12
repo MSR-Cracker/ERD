@@ -1,0 +1,28 @@
+{
+  "name": "Mini pharmacy",
+  "tables": {
+    "branches": {
+      "primaryKey": ["branch_id"],
+      "columns": [
+        { "name": "branch_id", "type": "BIGINT", "nullable": false },
+        { "name": "name", "type": "VARCHAR(120)", "unique": true, "nullable": false }
+      ]
+    },
+    "stock": {
+      "primaryKey": ["branch_id", "item_barcode", "batch_number"],
+      "columns": [
+        { "name": "branch_id", "type": "BIGINT", "nullable": false, "references": { "table": "branches", "column": "branch_id" } },
+        { "name": "item_barcode", "type": "VARCHAR(32)", "nullable": false, "references": { "table": "items", "column": "barcode" } },
+        { "name": "batch_number", "type": "VARCHAR(48)", "nullable": false },
+        { "name": "count", "type": "INTEGER", "default": 0 }
+      ]
+    },
+    "items": {
+      "primaryKey": ["barcode"],
+      "columns": [
+        { "name": "barcode", "type": "VARCHAR(32)", "nullable": false },
+        { "name": "name", "type": "VARCHAR(180)" }
+      ]
+    }
+  }
+}
