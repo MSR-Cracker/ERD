@@ -1075,17 +1075,17 @@ export default function App() {
                     {parseBusy
                       ? copy.parsing
                       : activeTab === 'sql'
-                        ? (locale === 'ar' ? '⚡ تحديث المخطط من كود SQL وعرضه' : '⚡ Sync SQL & Open ERD')
+                        ? (locale === 'ar' ? 'تحديث المخطط من كود SQL وعرضه' : 'Sync SQL & Open ERD')
                         : activeTab === 'model'
-                          ? (locale === 'ar' ? '⚡ تحديث المخطط من JSON وعرضه' : '⚡ Sync JSON & Open ERD')
-                          : (locale === 'ar' ? '⚡ تحويل النص/الكود وعرض مخطط ERD' : '⚡ Generate & Open Workbench ERD')}
+                          ? (locale === 'ar' ? 'تحديث المخطط من JSON وعرضه' : 'Sync JSON & Open ERD')
+                          : (locale === 'ar' ? 'تحويل النص/الكود وعرض مخطط ERD' : 'Generate & Open Workbench ERD')}
                   </span>
                 </button>
 
                 {activeTab === 'sql' && schema.entities.length > 0 && (
                   <button type="button" className="outline-button dialog-cancel-btn" onClick={handleDownloadSql}>
                     <ArrowDownToLine size={15} />
-                    <span>{locale === 'ar' ? 'تنزيل ملف SQL مع حقوق المطور' : 'Download .sql File'}</span>
+                    <span>{locale === 'ar' ? 'تنزيل ملف SQL' : 'Download .sql File'}</span>
                   </button>
                 )}
               </div>
